@@ -1,0 +1,9 @@
+﻿using InterviewPrep.API.Application.DTOs.MockSession;
+
+namespace InterviewPrep.API.Application.Services
+{
+    public interface ISessionAnswerService
+    {
+        Task<List<SessionAnswerDTO>> GetAnswersBySessionIdAsync(long sessionId);
+    }
+}

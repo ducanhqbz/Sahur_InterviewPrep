@@ -5,7 +5,9 @@ using InterviewPrep.API.Application.DTOs.Question;
 using InterviewPrep.API.Application.DTOs.Staff;
 using InterviewPrep.API.Application.DTOs.User;
 using InterviewPrep.API.Data.Models;
+using InterviewPrep.API.Data.Models.Enums;
 using InterviewPrep.API.Data.Repositories;
+using InterviewPrep.API.Application.DTOs.MockSession;
 
 namespace InterviewPrep.API.Application.Profiles
 {
@@ -14,6 +16,10 @@ namespace InterviewPrep.API.Application.Profiles
         public MappingProfile()
         {
 
+            CreateMap<SessionAnswer, SessionAnswerDTO>();
+            CreateMap<MockSession, DTOs.MockSession.MockSessionDTO>();
+            // nếu không cần ánh xạ User hoặc dùng DTO riêng
+            CreateMap<SessionAnswer, SessionAnswerDTO>();
             CreateMap<Category, CategoryDTO>();
             CreateMap<CreateCategoryDTO, Category>();
             CreateMap<UpdateCategoryInfoDTO, Category>();
@@ -41,7 +47,7 @@ namespace InterviewPrep.API.Application.Profiles
             CreateMap<Transaction, TransactionDTO>()
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()));
 
-            CreateMap<MockSession, MockSessionDTO>()
+            CreateMap<MockSession, DTOs.User.MockSessionDTO>()
                 .ForMember(dest => dest.SessionType, opt => opt.MapFrom(src => src.SessionType.ToString()))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()));
 

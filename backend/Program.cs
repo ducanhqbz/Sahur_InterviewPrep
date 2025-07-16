@@ -44,6 +44,10 @@ builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 builder.Services.AddScoped<IAuditLogRepository, AuditLogRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 
+builder.Services.AddScoped<IMockSessionRepository, MockSessionRepository>();
+builder.Services.AddScoped<ISessionAnswerRepository, SessionAnswerRepository>();
+
+
 builder.Services.AddScoped<JwtTokenGenerator>();
 // Add Services
 builder.Services.AddScoped<IExcelImporterService, ExcelImporterService>();
@@ -54,6 +58,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IStaffService, StaffService>();
 builder.Services.AddScoped<IAuditLogService, AuditLogService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<ISessionAnswerService, SessionAnswerService>();
+builder.Services.AddScoped<IMockSessionService, MockSessionService>();
 // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));
 
